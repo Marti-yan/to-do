@@ -6,7 +6,6 @@ let arraytarefas = []
 let completelist = document.getElementById("list-tarefas")
 recarregartarefas()
 button.addEventListener("click", adicionarTarefa)
-
 function adicionarTarefa() {
     if (input.value) {
         arraytarefas.push({
@@ -16,15 +15,12 @@ function adicionarTarefa() {
     } else {
         alert("Digite uma tarefa")
     }
-
     input.value = ""
     showtask()
 }
-
 function showtask() {
     let novali = ''
     arraytarefas.forEach((task, i) => {
-
         novali = novali + `
         <li class="tarefas ${task.status === true && 'concluido'}">
             <button class="rocket " onclick="concluirtarefa(${i})"> <i class="fas fa-rocket"></i> </button>
@@ -33,11 +29,9 @@ function showtask() {
         </li>  
         `
     })
-
     completelist.innerHTML = novali
     localStorage.setItem("lista", JSON.stringify(arraytarefas))
 }
-
 function deletartask(i) {
     arraytarefas.splice(i, 1)
     showtask()
@@ -46,7 +40,6 @@ function concluirtarefa(i) {
     arraytarefas[i].status = !arraytarefas[i].status
     showtask()
 }
-
 function recarregartarefas() {
     let minhastarefas = localStorage.getItem("lista")
 
@@ -54,8 +47,6 @@ function recarregartarefas() {
         arraytarefas = JSON.parse(minhastarefas)
         showtask()
     }
-
-
 }
 function adicionarpeloenter(teclas) {
     if (teclas.key === "Enter") {
