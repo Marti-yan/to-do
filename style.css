@@ -128,9 +128,11 @@ body {
     position: relative;
     margin-top: 5px;
     width: 55vw;
-    left: 10%;
+    left: 15%;
   }
-
+#container {
+  width: 95vw;
+}
   #inserir-tarefas {
     width: 100%;
   }
